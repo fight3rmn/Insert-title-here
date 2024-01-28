@@ -18,7 +18,10 @@ public class amogusChair : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
+        if (timerStart == true)
+        {
+            timer += Time.deltaTime;
+        }
         if(timer > 3)
         {
             SceneManager.LoadScene(Random.Range(2, 6));
