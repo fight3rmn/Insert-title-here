@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/catToungue.unity
+    guid: 36c0648c35afdd348af55247e7e43e13
+  - enabled: 1
+    path: Assets/Scenes/chairThrow.unity
+    guid: 7764cea518b610148b453764068ee895
+  - enabled: 1
+    path: Assets/Scenes/watchMyJacket.unity
+    guid: 8b74d41ff9b05774ba7d403a02948f17
   m_configObjects: {}

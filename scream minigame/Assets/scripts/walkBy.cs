@@ -7,7 +7,7 @@ public class walkBy : MonoBehaviour
     public GameObject thisObject;
     public Rigidbody2D thisRB;
     public int index;
-    int timer = 0;
+    float timer = 0;
     bool moved = false;
 
     void Start() {
@@ -15,8 +15,8 @@ public class walkBy : MonoBehaviour
     }
     void Update()
     {
-        timer++;
-        if(PlayerPrefs.GetInt("screamButtonPressed") != 0 && index < PlayerPrefs.GetInt("numPeople") && timer > 5000 + (2000*index)) {
+        timer += Time.deltaTime;
+        if(PlayerPrefs.GetInt("screamButtonPressed") != 0 && index < PlayerPrefs.GetInt("numPeople") && timer > 5 + (2*index)) {
             thisRB.velocity = new Vector2(100, 0);
             if(moved == false) {
             thisObject.transform.position = new Vector3(126, 239 + Random.Range(-50, 51), 0);

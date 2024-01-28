@@ -21,7 +21,7 @@ public class SceneChange : MonoBehaviour
 
         if(timer > waitTime)
         {
-            int index = Random.Range(1, 4);
+            int index = Random.Range(2, 6);
             SceneManager.LoadScene(index);
         }
     }
