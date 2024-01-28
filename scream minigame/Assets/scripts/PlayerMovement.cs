@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rigidbodyPlayer;
+    [SerializeField] Rigidbody rigidbodyPlayer;
     private Vector2 playerSpeed;
     [SerializeField] float horizontalMovement = 1f, speed = 5f;
+    [SerializeField] int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbodyPlayer = GetComponent<Rigidbody2D>();
+        rigidbodyPlayer = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -19,13 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         GetMovementSpeed();
         Walk();
-    }
-
-
-
-    private void FixedUpdate()
-    {
-        rigidbodyPlayer.MovePosition(rigidbodyPlayer.position + playerSpeed * speed * Time.fixedDeltaTime);
     }
 
     private void GetMovementSpeed()
@@ -37,5 +31,24 @@ public class PlayerMovement : MonoBehaviour
     private void Walk()
     {
         rigidbodyPlayer.velocity = (new Vector2(playerSpeed.x * speed, rigidbodyPlayer.velocity.y));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == ("Moon"))
+        {
+            Debug.Log("Moon landed!");
+            score++;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == ("Chair"))
+        {
+            Debug.Log("You didn't watch the jacket.");
+            score++;
+        }
     }
 }
